@@ -27,28 +27,6 @@ namespace Messanger
 
         RegistrationEMail RegistrationEmailFenster;
 
-        byte[] HashPasswordArgon2id(string password, out byte[] salt)  // HASHING
-        {
-            salt = new byte[16];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
-
-            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
-            {
-                Salt = salt,
-                Iterations = 3,
-                MemorySize = 65536,
-                DegreeOfParallelism = 2
-            };
-
-            return argon2.GetBytes(32);
-        }
-
-
-
-
         void RegistrationAnAccount()
         {
             string username = TextBoxUsername.Text;
@@ -72,7 +50,7 @@ namespace Messanger
                 }
                 else
                 {
-                    byte[] hash = HashPasswordArgon2id(password, out byte[] salt);
+                    byte[] hash = PasswordHashing.HashPasswordArgon2id(password, out byte[] salt);
                     WechselZuRegistrationEmail?.Invoke(this, EventArgs.Empty);
 
 

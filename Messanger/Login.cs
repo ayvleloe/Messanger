@@ -30,35 +30,6 @@ namespace Messanger
 
         }
 
-        public bool VerifyPasswordArgon2id(string password, byte[] storedSalt, byte[] storedHash) // HASHING
-        {
-            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
-            {
-                Salt = storedSalt,
-                Iterations = 3,
-                MemorySize = 65536,
-                DegreeOfParallelism = 2
-            };
-
-            byte[] computedHash = argon2.GetBytes(32);
-
-            return FixedTimeEquals(computedHash, storedHash);
-        }
-
-        bool FixedTimeEquals(byte[] a, byte[] b) // HASHING
-        {
-            if (a == null || b == null || a.Length != b.Length)
-                return false;
-
-            int diff = 0;
-            for (int i = 0; i < a.Length; i++)
-            {
-                diff |= a[i] ^ b[i];
-            }
-
-            return diff == 0;
-        }
-
         void LoginInAccount()
         {
             string username = TextBoxUsername.Text;
@@ -72,7 +43,7 @@ namespace Messanger
                 return;
             }
 
-            bool passwordOk = VerifyPasswordArgon2id(password, user.PasswordSalt, user.PasswordHash);
+            bool passwordOk = PasswordHashing.VerifyPasswordArgon2id(password, user.PasswordSalt, user.PasswordHash);
 
             if (!passwordOk)
             {
