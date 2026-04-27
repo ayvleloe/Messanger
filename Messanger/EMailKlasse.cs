@@ -33,12 +33,12 @@ namespace Messanger
 
             var client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("MyGmailgmail.com", "app password"),
+                Credentials = new NetworkCredential("MyGmailgmail.com", "app password"), // HIER GMAIL AND APP PASSWORD EINGEBEN
                 EnableSsl = true
             };
 
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("MyGmail@gmail.com");
+            mail.From = new MailAddress("MyGmail@gmail.com"); // HIER GMAIL EINGEBEN
             mail.To.Add(empfaengerEmail);
             mail.Subject = "Dein Bestätigungscode";
             mail.Body = $"{tempUsername}, Dein Code ist: {aktuellerCode}";
