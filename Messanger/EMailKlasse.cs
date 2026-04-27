@@ -33,19 +33,19 @@ namespace Messanger
 
             var client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("ykkv4132@gmail.com", "PASSWORT"),
+                Credentials = new NetworkCredential("MyGmailgmail.com", "app password"),
                 EnableSsl = true
             };
 
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("ykkv4132@gmail.com");
+            mail.From = new MailAddress("MyGmail@gmail.com");
             mail.To.Add(empfaengerEmail);
             mail.Subject = "Dein Bestätigungscode";
-            mail.Body = $"Dein Code ist: {aktuellerCode}";
+            mail.Body = $"{tempUsername}, Dein Code ist: {aktuellerCode}";
 
             MessageBox.Show(aktuellerCode);
 
-            //client.Send(mail); // direkt senden
+            client.Send(mail);
 
             return Task.CompletedTask;
         }

@@ -38,7 +38,7 @@ namespace Messanger
 
                     try
                     {
-                        await EMailKlasse.SendeCode(email);
+                        await EMailKlasse.SendeCode(email, username);
                     }
                     catch (Exception ex)
                     {
