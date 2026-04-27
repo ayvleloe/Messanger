@@ -14,8 +14,6 @@ namespace Messanger
     public partial class Messanger : Form
     {
 
-        List<Accounts> accounts = new List<Accounts>();
-        Accounts currentUser;
         public Messanger()
         {
             InitializeComponent();
@@ -24,11 +22,6 @@ namespace Messanger
             OpenAnyFenster(RegistrationEMailFenster);
             OpenAnyFenster(RegistrationFenster);
             OpenAnyFenster(MenuFenster);
-
-            RegistrationFenster.accountsListRegistration = accounts;
-            RegistrationFenster.currentUserRegistration = currentUser;
-            LoginFenster.accountsListLogin = accounts;
-            LoginFenster.currentUserLogin = currentUser;
 
             this.Controls.Add(RegistrationEMailFenster);
             this.Controls.Add(MenuFenster);
@@ -39,39 +32,17 @@ namespace Messanger
             RegistrationEMailFenster.Visible = false;
             LoginFenster.Visible = false;
 
-            LoginFenster.WechselZuRegistration += (s, e) =>
-            {
-                LoginFenster.Visible = false;
-                RegistrationFenster.Visible = true;
-            };
-
-            RegistrationFenster.WechselZuLogin += (s, e) =>
-            {
-                LoginFenster.Visible = true;
-                RegistrationFenster.Visible = false;
-            };
-
-            RegistrationFenster.WechselZuRegistrationEmail += (s, e) =>
-            {
-                RegistrationFenster.Visible = false;
-                RegistrationEMailFenster.Visible = true;
-            };
-
         }
 
-        Registration RegistrationFenster = new Registration();
-        RegistrationEMail RegistrationEMailFenster = new RegistrationEMail();
-        Login LoginFenster = new Login();
-        Menu MenuFenster = new Menu();
-
-       
-
+        public static Login LoginFenster = new Login();
+        public static Registration RegistrationFenster = new Registration();
+        public static RegistrationEMail RegistrationEMailFenster = new RegistrationEMail();
+        public static Menu MenuFenster = new Menu();
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
 
         void OpenAnyFenster(UserControl fenster)
         {

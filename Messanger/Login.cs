@@ -17,49 +17,15 @@ namespace Messanger
         {
             InitializeComponent();
         }
-        public List<Accounts> accountsListLogin { get; set; }
-        public Accounts currentUserLogin { get; set; }
-
-        public event EventHandler WechselZuRegistration;
-
-        Registration registrationFenster;
-
 
         private void Login_Load(object sender, EventArgs e)
         {
 
         }
 
-        void LoginInAccount()
-        {
-            string username = TextBoxUsername.Text;
-            string password = TextBoxPasswordLogin.Text;
-
-            Accounts user = accountsListLogin.FirstOrDefault(u => u.Username == username);
-
-            if (user == null)
-            {
-                MessageBox.Show("Falscher Username oder Password");
-                return;
-            }
-
-            bool passwordOk = PasswordHashing.VerifyPasswordArgon2id(password, user.PasswordSalt, user.PasswordHash);
-
-            if (!passwordOk)
-            {
-                MessageBox.Show("Falscher Username oder Password");
-            }
-            else
-            {
-                currentUserLogin = user;
-
-            }
-                
-        }
-
         private void ButtonChange_Click(object sender, EventArgs e)
         {
-            WechselZuRegistration?.Invoke(this, EventArgs.Empty);
+            WechselZuKlasse.Wechsel(this, Messanger.RegistrationFenster);
         }
 
         private void ButtonPassword_MouseDown(object sender, MouseEventArgs e)
@@ -74,7 +40,10 @@ namespace Messanger
 
         private void ButtonSignUp_Click(object sender, EventArgs e)
         {
-            LoginInAccount();
+            string username = TextBoxUsername.Text;
+            string password = TextBoxPasswordLogin.Text;
+
+            LoginKlasse.LoginInAccount(username, password);
         }
     }
 }

@@ -70,6 +70,7 @@
             this.ButtonWeiterEMailLogin.TabIndex = 4;
             this.ButtonWeiterEMailLogin.Text = "Weiter";
             this.ButtonWeiterEMailLogin.UseVisualStyleBackColor = true;
+            this.ButtonWeiterEMailLogin.Click += new System.EventHandler(this.ButtonWeiterEMailLogin_Click);
             // 
             // RegistrationEMail
             // 

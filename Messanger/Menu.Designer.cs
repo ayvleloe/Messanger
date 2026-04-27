@@ -58,6 +58,7 @@
             this.ButtonSendenMenu.TabIndex = 2;
             this.ButtonSendenMenu.Text = "Senden";
             this.ButtonSendenMenu.UseVisualStyleBackColor = true;
+            this.ButtonSendenMenu.Click += new System.EventHandler(this.ButtonSendenMenu_Click);
             // 
             // FlowLayoutPanelChats
             // 

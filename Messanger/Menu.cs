@@ -21,5 +21,10 @@ namespace Messanger
         {
 
         }
+
+        private void ButtonSendenMenu_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
