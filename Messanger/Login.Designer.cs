@@ -54,6 +54,7 @@
             this.ButtonPassword.Name = "ButtonPassword";
             this.ButtonPassword.Size = new System.Drawing.Size(30, 31);
             this.ButtonPassword.TabIndex = 16;
+            this.ButtonPassword.Text = "X";
             this.ButtonPassword.UseVisualStyleBackColor = true;
             this.ButtonPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ButtonPassword_MouseDown);
             this.ButtonPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ButtonPassword_MouseUp);
