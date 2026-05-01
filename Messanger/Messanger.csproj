@@ -107,6 +107,12 @@
   <ItemGroup>
     <Compile Include="AccountsKlasse.cs" />
     <Compile Include="EMailKlasse.cs" />
+    <Compile Include="FensterChat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FensterChat.Designer.cs">
+      <DependentUpon>FensterChat.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginKlasse.cs" />
     <Compile Include="Menu.cs">
       <SubType>UserControl</SubType>
@@ -142,7 +148,11 @@
       <DependentUpon>Registration.cs</DependentUpon>
     </Compile>
     <Compile Include="RegistrationKlasse.cs" />
+    <Compile Include="SuchNachBenutzer.cs" />
     <Compile Include="WechselZuKlasse.cs" />
+    <EmbeddedResource Include="FensterChat.resx">
+      <DependentUpon>FensterChat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>

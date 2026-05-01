@@ -27,28 +27,27 @@ namespace Messanger
             return aktuellerCode;
         }
 
-        public static Task SendeCode(string empfaengerEmail)
+        public static async Task SendeCode(string empfaengerEmail)
         {
             GeneriereCode();
 
             var client = new SmtpClient("smtp.gmail.com", 587)
             {
-                Credentials = new NetworkCredential("MyGmailgmail.com", "app password"), // HIER GMAIL AND APP PASSWORD EINGEBEN
+                Credentials = new NetworkCredential("MyGmail@gmail.com", "app password"), //sein email + password eingeben
                 EnableSsl = true
             };
 
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("MyGmail@gmail.com"); // HIER GMAIL EINGEBEN
+            mail.From = new MailAddress("MyGmail@gmail.com"); // sein email eingeben
             mail.To.Add(empfaengerEmail);
             mail.Subject = "Dein Bestätigungscode";
             mail.Body = $"{tempUsername}, Dein Code ist: {aktuellerCode}";
 
-            MessageBox.Show(aktuellerCode);
+            MessageBox.Show(aktuellerCode); // vorübergehend
 
-            client.Send(mail);
-
-            return Task.CompletedTask;
+            //await client.SendMailAsync(mail);
         }
+
 
         public static void PruefungEMail(string eingegebenenCode)
         {
@@ -70,6 +69,5 @@ namespace Messanger
 
             } else { MessageBox.Show("Code ist falsch."); }
         }
-
     }
 }

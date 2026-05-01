@@ -14,7 +14,6 @@ namespace Messanger
     {
         public static async Task RegistrationAnAccount(string username, string email, string password)
         {
-
             bool existiertUsername = AccountsEigenschaften.accounts.Any(u => u.Username == username);
             bool existiertEMail = AccountsEigenschaften.accounts.Any(u => u.EMail == email);
 

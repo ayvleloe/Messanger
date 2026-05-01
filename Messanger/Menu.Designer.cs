@@ -28,18 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FlowLayoutPabelSMS = new System.Windows.Forms.FlowLayoutPanel();
+            this.FlowLayoutPanelSMS = new System.Windows.Forms.FlowLayoutPanel();
             this.TextBoxTippen = new System.Windows.Forms.TextBox();
             this.ButtonSendenMenu = new System.Windows.Forms.Button();
             this.FlowLayoutPanelChats = new System.Windows.Forms.FlowLayoutPanel();
+            this.TextBoxSuchNachBenutzer = new System.Windows.Forms.TextBox();
+            this.ButtonSuchNachBenutzer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // FlowLayoutPabelSMS
+            // FlowLayoutPanelSMS
             // 
-            this.FlowLayoutPabelSMS.Location = new System.Drawing.Point(201, 42);
-            this.FlowLayoutPabelSMS.Name = "FlowLayoutPabelSMS";
-            this.FlowLayoutPabelSMS.Size = new System.Drawing.Size(527, 607);
-            this.FlowLayoutPabelSMS.TabIndex = 0;
+            this.FlowLayoutPanelSMS.Location = new System.Drawing.Point(201, 42);
+            this.FlowLayoutPanelSMS.Name = "FlowLayoutPanelSMS";
+            this.FlowLayoutPanelSMS.Size = new System.Drawing.Size(527, 607);
+            this.FlowLayoutPanelSMS.TabIndex = 0;
             // 
             // TextBoxTippen
             // 
@@ -62,19 +64,39 @@
             // 
             // FlowLayoutPanelChats
             // 
-            this.FlowLayoutPanelChats.Location = new System.Drawing.Point(0, 42);
+            this.FlowLayoutPanelChats.Location = new System.Drawing.Point(3, 42);
             this.FlowLayoutPanelChats.Name = "FlowLayoutPanelChats";
             this.FlowLayoutPanelChats.Size = new System.Drawing.Size(195, 658);
             this.FlowLayoutPanelChats.TabIndex = 3;
+            // 
+            // TextBoxSuchNachBenutzer
+            // 
+            this.TextBoxSuchNachBenutzer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxSuchNachBenutzer.Location = new System.Drawing.Point(3, 10);
+            this.TextBoxSuchNachBenutzer.Name = "TextBoxSuchNachBenutzer";
+            this.TextBoxSuchNachBenutzer.Size = new System.Drawing.Size(169, 26);
+            this.TextBoxSuchNachBenutzer.TabIndex = 4;
+            // 
+            // ButtonSuchNachBenutzer
+            // 
+            this.ButtonSuchNachBenutzer.Location = new System.Drawing.Point(168, 10);
+            this.ButtonSuchNachBenutzer.Name = "ButtonSuchNachBenutzer";
+            this.ButtonSuchNachBenutzer.Size = new System.Drawing.Size(30, 26);
+            this.ButtonSuchNachBenutzer.TabIndex = 5;
+            this.ButtonSuchNachBenutzer.Text = "x";
+            this.ButtonSuchNachBenutzer.UseVisualStyleBackColor = true;
+            this.ButtonSuchNachBenutzer.Click += new System.EventHandler(this.ButtonSuchNachBenutzer_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ButtonSuchNachBenutzer);
+            this.Controls.Add(this.TextBoxSuchNachBenutzer);
             this.Controls.Add(this.FlowLayoutPanelChats);
             this.Controls.Add(this.ButtonSendenMenu);
             this.Controls.Add(this.TextBoxTippen);
-            this.Controls.Add(this.FlowLayoutPabelSMS);
+            this.Controls.Add(this.FlowLayoutPanelSMS);
             this.Name = "Menu";
             this.Size = new System.Drawing.Size(928, 701);
             this.Load += new System.EventHandler(this.Menu_Load);
@@ -85,9 +107,11 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPabelSMS;
+        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelSMS;
         private System.Windows.Forms.TextBox TextBoxTippen;
         private System.Windows.Forms.Button ButtonSendenMenu;
-        private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelChats;
+        private System.Windows.Forms.TextBox TextBoxSuchNachBenutzer;
+        private System.Windows.Forms.Button ButtonSuchNachBenutzer;
+        public System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelChats;
     }
 }

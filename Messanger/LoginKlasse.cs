@@ -29,6 +29,7 @@ namespace Messanger
             else
             {
                 AccountsEigenschaften.currentUser = user;
+                WechselZuKlasse.Wechsel(Messanger.LoginFenster, Messanger.MenuFenster);
             }
 
         }
